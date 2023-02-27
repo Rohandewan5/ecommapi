@@ -25,7 +25,7 @@ app.use("/", porductroutes);
 const start = async () => {
     try {
         //connecting database here.
-        app.listen(port, () => { console.log(`THE SERVER IS RUNNING AT ${port}`); });
+        app.listen(port, () => { console.log(`THE SERVER IS RUNNING at ${port}`); });
         await connectDB();
     }
     catch (error) {
