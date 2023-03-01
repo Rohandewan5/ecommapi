@@ -6,6 +6,7 @@ const { getallproducts, getProductByComapny, getsortpriceaccending, getsortprice
 //to get all products.
 router.route("/product").get(getallproducts);
 
+
 //to get products by company name.
 router.route("/productbycompany").get(getProductByComapny);
 
