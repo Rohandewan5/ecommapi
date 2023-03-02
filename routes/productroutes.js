@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getallproducts, getProductByComapny, getsortpriceaccending, getsortpricedecending } = require("../controller/productcontroller");
+const { getallproducts, getProductByComapny, getsortpriceaccending, getsortpricedecending, postaddproduct } = require("../controller/productcontroller");
 
 //to get all products.
 router.route("/product").get(getallproducts);
@@ -15,5 +15,11 @@ router.route("/productaccending").get(getsortpriceaccending);
 
 //to get product by decending order.
 router.route("/productdecending").get(getsortpricedecending);
+
+
+//to post the product into the database.
+router.route("/addproduct").post(postaddproduct)
+
+
 
 module.exports = router;

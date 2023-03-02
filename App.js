@@ -4,6 +4,7 @@ const connectDB = require("./database/connectdatabase")
 const cors = require("cors");
 const port = process.env.PORT || 4545;
 const porductroutes = require("./routes/productroutes");
+const bodyParser = require('body-parser')
 
 app.use(cors());
 
@@ -16,6 +17,8 @@ app.get("/", (req, resp) => {
 */
 
 //using the middleware for sending the data to client-side.
+app.use(bodyParser.json())
+
 app.use("/", porductroutes);
 
 
