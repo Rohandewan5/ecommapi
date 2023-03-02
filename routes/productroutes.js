@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { getallproducts, getProductByComapny, getsortpriceaccending, getsortpricedecending, postaddproduct } = require("../controller/productcontroller");
 
-//to get all products.
+//to get all products. with pagination.
 router.route("/product").get(getallproducts);
 
 

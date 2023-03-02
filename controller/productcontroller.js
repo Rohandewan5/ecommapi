@@ -1,8 +1,12 @@
 const productmodels = require("../models/productmodels");
 
 
+
+//getting all products with pagination done.
 const getallproducts = async (req, resp) => {
-    const mydata = await productmodels.find({});
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 20;
+    const mydata = await productmodels.find({}).sort("id").skip((page - 1) * limit);
     resp.status(200).json(mydata)
     console.log("DATA IS SENT FROM THE BACKEND");
 }
@@ -32,5 +36,6 @@ const postaddproduct = async (req, resp) => {
     console.log("THE DATA IS SAVED");
     resp.status(200).send("DATA IS SAVED IN THE BACKEND");
 }
+
 
 module.exports = { getallproducts, getProductByComapny, getsortpriceaccending, getsortpricedecending, postaddproduct };
