@@ -5,7 +5,7 @@ const productmodels = require("../models/productmodels");
 //getting all products with pagination done.
 const getallproducts = async (req, resp) => {
     const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 6;
+    const limit = Number(req.query.limit) || 10;
     const mydata = await productmodels.find({}).sort("id").skip((page - 1) * limit).limit(Number(req.query.limit) || 6);
     resp.status(200).json(mydata)
     console.log("DATA IS SENT FROM THE BACKEND");
